@@ -32,12 +32,12 @@
 #ifndef __ALE_INTERFACE_HPP__
 #define __ALE_INTERFACE_HPP__
 
-#include "common/Log.hpp"
-#include "common/ScreenExporter.hpp"
-#include "emucore/OSystem.hxx"
-#include "environment/stella_environment.hpp"
-#include "games/Roms.hpp"
-#include "version.hpp"
+#include "../src/common/Log.hpp"
+#include "../src/common/ScreenExporter.hpp"
+#include "../src/emucore/OSystem.hxx"
+#include "../src/environment/stella_environment.hpp"
+#include "../src/games/Roms.hpp"
+#include "../src/version.hpp"
 
 #include <filesystem>
 #include <fstream>

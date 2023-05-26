@@ -29,7 +29,7 @@
  *  The shared library interface.
  **************************************************************************** */
 
-#include "ale_interface.hpp"
+#include "../include/ale_interface.hpp"
 
 #include <algorithm>
 #include <cassert>
