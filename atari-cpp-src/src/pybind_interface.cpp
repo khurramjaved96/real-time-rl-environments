@@ -17,6 +17,7 @@ PYBIND11_MODULE(RealtimeAtari, m) {
     py::class_<RealTimeAtari, Environment>(m, "RealTimeAtari")
         .def(py::init<>())
         .def("sense", &RealTimeAtari::sense)
+        .def("loop", &RealTimeAtari::loop)
         .def("get_features", &RealTimeAtari::get_features)
         .def("get_reward", &RealTimeAtari::get_reward)
         .def("act", &RealTimeAtari::act);
