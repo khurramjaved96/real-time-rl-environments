@@ -13,9 +13,11 @@
 using namespace std;
 
 class Environment {
+protected:
   int action_to_take;
   std::vector<float> features;
   float reward;
+  long long int steps;
 
 public:
   Environment();
@@ -27,8 +29,11 @@ public:
 
 class RealTimeAtari : public Environment {
   ale::ALEInterface* my_env;
+
 public:
+  std::thread * t1;
   RealTimeAtari();
+  static void loop(RealTimeAtari env);
   void sense();
   void act(int a);
 };

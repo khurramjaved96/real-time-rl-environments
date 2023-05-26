@@ -10,4 +10,5 @@ using namespace std;
 
 int main() {
   RealTimeAtari env;
+  env.t1->join();
 }
