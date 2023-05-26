@@ -1,0 +1,4 @@
+[submodule "atari-cpp-src/extern/pybind11"]
+	path = atari-cpp-src/extern/pybind11
+	url = ../../pybind/pybind11
+	branch = stable
