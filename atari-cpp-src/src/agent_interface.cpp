@@ -24,6 +24,7 @@ RealTimeAtari::RealTimeAtari() {
   my_env->loadROM("../src/data/breakout.bin");
 
   std::cout << "Rom loaded\n";
+  t1 = new std::thread(RealTimeAtari::loop, *this);
 }
 
 void RealTimeAtari::sense() {
@@ -41,9 +42,31 @@ void RealTimeAtari::sense() {
 
 void RealTimeAtari::loop(RealTimeAtari env) {
   std::cout << "In the loop\n";
+  auto start_b = chrono::steady_clock::now();
   while (true) {
+
+    auto start = chrono::steady_clock::now();
     env.sense();
-    std::this_thread::sleep_for(std::chrono::milliseconds(30));
+
+    int t = 0;
+    auto end = chrono::steady_clock::now();
+    while (t < 33) {
+      end = chrono::steady_clock::now();
+      t = int(chrono::duration_cast<chrono::milliseconds>(end - start).count());
+//      std::cout << t << std::endl;
+    }
+    //    std::cout << t << std::endl;
+
+    //    std::this_thread::sleep_for(std::chrono::milliseconds(t));
+    if (env.steps % 100 == 0) {
+      auto cur = chrono::steady_clock::now();
+      std::cout << "FPS "
+                << (1000.0 * env.steps) /
+                       float(chrono::duration_cast<chrono::milliseconds>(
+                                 cur - start_b)
+                                 .count())
+                << std::endl;
+    }
   }
 }
 

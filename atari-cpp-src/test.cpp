@@ -10,10 +10,5 @@ using namespace std;
 
 int main() {
   RealTimeAtari env;
-  std::thread t1(RealTimeAtari::loop, env);
-  t1.join();
-  for(int i = 0; i < 1000; i++){
-    env.act(0);
-    std::cout << i << std::endl;
-  }
+  env.t1->join();
 }
